@@ -414,7 +414,7 @@ ul {
 // PROJECTS STYLING
 .home-projects {
   height: auto;
-  padding: 6rem 1rem 1rem;
+  padding: 6rem 1rem 4rem;
   background-color: #f1f1f1;
 }
 
@@ -475,7 +475,7 @@ ul {
   .item-title {
     width: 100vw;
     padding: 0 1rem;
-    margin-bottom: 4rem;
+    margin: 4rem 0 2rem;
     box-sizing: border-box;
 
     h2 {
@@ -527,9 +527,9 @@ ul {
 
 .proj-pic {
   width: 100%;
-  height: 40%;
+  height: 200px;
   object-fit: contain;
-  transform: scale(3);
+  transform: scale(1.5);
   transition: all 0.3s ease;
   cursor: pointer;
   display: block;
@@ -1236,7 +1236,7 @@ ul {
     margin: 0 2.5rem;
   }
   .proj-pic {
-    transform: scale(2.5);
+    transform: scale(1.5) !important;
   }
   .about-text p {
     font-size: 2rem !important;
@@ -1276,6 +1276,16 @@ ul {
     margin: 0 5rem;
     width: 85%;
   }
+  .proj-pic {
+    height: 250px !important;
+    transform: scale(1.5) !important;
+  }
+  .item-title {
+    margin: 6rem 0 3rem !important;
+  }
+  .project-item {
+    margin: 0rem 0.5rem 6rem !important;
+  }
 }
 
 @media (min-width: 545px) {
@@ -1289,9 +1299,6 @@ ul {
   .hamburger-menu {
     top: 35px;
     left: 90%;
-  }
-  .item-title {
-    margin: 6rem !important;
   }
 }
 
@@ -1372,15 +1379,16 @@ ul {
     font-size: var(--font-size-l) !important;
   }
   .project-item {
-    height: 90vh !important;
-    margin: 0 0 4rem !important;
-    .proj-pic {
-      height: 45vh;
-      transform: scale(1.5);
-    }
+    height: 450px !important;
+    margin: 4rem 0.5rem 10rem !important;
+
     .item-title {
       margin: 0 0 6rem !important;
     }
+  }
+  .proj-pic {
+    height: 250px !important;
+    transform: scale(1.8) !important;
   }
   .cert-box {
     flex-direction: row !important;
@@ -1565,12 +1573,14 @@ ul {
     font-size: 6rem !important;
   }
   .project-item {
-    height: 85vh !important;
-    margin: 4rem 0.5rem 0 !important;
+    margin: 6rem 0.5rem 10rem !important;
+    padding: 4rem 0;
   }
-  .item-4 {
-    margin-bottom: 6rem !important;
+
+  .proj-pic {
+    height: 300px !important;
   }
+
   .cert-box {
     justify-content: space-around !important;
     h2 {
@@ -1729,11 +1739,9 @@ ul {
     height: 500px !important;
   }
   .project-item {
-    margin: 6rem 0.5rem 0 !important;
+    margin: 6rem 0.5rem 10rem !important;
   }
-  .item-4 {
-    margin-bottom: 8rem !important;
-  }
+
   .certificates {
     padding: 3rem !important;
   }
