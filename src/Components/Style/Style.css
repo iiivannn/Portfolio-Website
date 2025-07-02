@@ -1658,6 +1658,8 @@ ul li:hover::after {
     height: 400px !important;
   }
   .info-item img {
-    height: 100% !important;
+    height: 450px !important;
+    -o-object-position: center 45% !important;
+       object-position: center 45% !important;
   }
 }/*# sourceMappingURL=Style.css.map */
