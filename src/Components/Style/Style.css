@@ -787,7 +787,7 @@ ul li:hover::after {
 }
 
 .require {
-  color: #ff6666;
+  color: #ff6666 !important;
 }
 
 .footer-title,

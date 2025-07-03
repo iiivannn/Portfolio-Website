@@ -148,7 +148,7 @@ export default function Footer() {
                     name="message"
                     id="message"
                   ></textarea>
-                  <span>{error}</span>
+                  <span className="require">{error}</span>
                 </div>
                 <input
                   disabled={isSubmitted}
