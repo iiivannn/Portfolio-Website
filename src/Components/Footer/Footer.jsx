@@ -11,11 +11,20 @@ export default function Footer() {
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [missingFields, setMissingFields] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name.trim() || !company.trim() || !email.trim() || !message.trim()) {
+    const missing = {
+      name: !name.trim(),
+      company: !company.trim(),
+      email: !email.trim(),
+      message: !message.trim(),
+    };
+    setMissingFields(missing);
+
+    if (Object.values(missing).some(Boolean)) {
       setError("Please fill up the required fields.");
       return;
     } else {
@@ -82,7 +91,10 @@ export default function Footer() {
                 <div className="name-company-row">
                   <div className="input-field name">
                     <label htmlFor="name">
-                      Name<span>*</span>
+                      Name
+                      <span className={missingFields.name ? "require" : ""}>
+                        *
+                      </span>
                     </label>
                     <input
                       value={name}
@@ -91,11 +103,13 @@ export default function Footer() {
                       id="name"
                       type="text"
                     />
-                    <span>{error}</span>
                   </div>
                   <div className="input-field company">
                     <label htmlFor="company">
-                      Company<span>*</span>
+                      Company
+                      <span className={missingFields.company ? "require" : ""}>
+                        *
+                      </span>
                     </label>
                     <input
                       value={company}
@@ -104,12 +118,14 @@ export default function Footer() {
                       id="company"
                       type="text"
                     />
-                    <span>{error}</span>
                   </div>
                 </div>
                 <div className="input-field email">
                   <label htmlFor="email">
-                    Email<span>*</span>
+                    Email
+                    <span className={missingFields.email ? "require" : ""}>
+                      *
+                    </span>
                   </label>
                   <input
                     value={email}
@@ -118,11 +134,13 @@ export default function Footer() {
                     id="email"
                     type="email"
                   />
-                  <span>{error}</span>
                 </div>
                 <div className="input-field message">
                   <label htmlFor="message">
-                    Message<span>*</span>
+                    Message
+                    <span className={missingFields.message ? "require" : ""}>
+                      *
+                    </span>
                   </label>
                   <textarea
                     value={message}
