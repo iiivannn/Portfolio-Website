@@ -9,14 +9,52 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!name.trim() || !company.trim() || !email.trim() || !message.trim()) {
       setError("Please fill up the required fields.");
-      e.preventDefault();
+      return;
     } else {
+      setIsSubmitted(true);
       setError(null);
+
+      try {
+        const res = await fetch("/api/sendEmail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            company,
+            email,
+            message,
+          }),
+        });
+
+        const result = await res.json();
+        if (result.success) {
+          setShowModal(true);
+          setName("");
+          setCompany("");
+          setEmail("");
+          setMessage("");
+        } else {
+          setError("Failed to send message. Please try again.");
+        }
+      } catch (error) {
+        console.log("Sending Error: ", error);
+        setError("Failed to send message. Please try again.");
+      } finally {
+        setIsSubmitted(false);
+      }
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
   return (
     <div>
@@ -94,10 +132,32 @@ export default function Footer() {
                   ></textarea>
                   <span>{error}</span>
                 </div>
-                <input className="submit-btn" type="submit" value="Submit" />
+                <input
+                  disabled={isSubmitted}
+                  className="submit-btn"
+                  type="submit"
+                  value={isSubmitted ? "Sending..." : "Submit"}
+                />
               </form>
             </div>
           </div>
+          {showModal && (
+            <div className="modal">
+              <div className="modal-box">
+                <button onClick={closeModal} className="x-btn">
+                  X
+                </button>
+                <h3>Message Successfully Sent!</h3>
+                <p>
+                  Thank you for reaching out! I've received your message and
+                  will get back to you as soon as possible.
+                </p>
+                <button onClick={closeModal} className="close-btn">
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="footer-link">
             <div className="link-social">

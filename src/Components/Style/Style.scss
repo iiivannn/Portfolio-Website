@@ -920,6 +920,74 @@ ul {
   }
 }
 
+.footer-box {
+  position: relative;
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    .modal-box {
+      position: relative;
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      .x-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        background-color: transparent;
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        z-index: 101;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+        transition: all 0.3s ease-in-out;
+      }
+      h3 {
+        font-size: 2rem;
+        margin: 2rem 0;
+      }
+      p {
+        font-size: var(--font-size-xs);
+        margin-bottom: 2rem;
+      }
+      .close-btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: var(--primary-btn);
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+        border: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .close-btn:hover {
+        transform: scale(1.1);
+        background-color: #f1ab6d;
+        font-weight: var(--font-weight-med);
+      }
+      .x-btn:hover {
+        transform: scale(1.1);
+        font-weight: var(--font-weight-semi);
+      }
+    }
+  }
+}
+
 //GO UP BUTTON
 .btn-box {
   width: 30px;
