@@ -1,5 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -27,6 +30,9 @@ import check from "../../assets/check.png";
 
 export default function Home() {
   const buttonUp = useRef(null);
+  const heroText = useRef(null);
+  const heroImg = useRef(null);
+  const contentCard = useRef(null);
 
   useEffect(() => {
     const goTop = () => {
@@ -49,12 +55,57 @@ export default function Home() {
     });
   };
 
+  useEffect(() => {
+    if (heroText.current && heroImg.current) {
+      gsap.fromTo(
+        heroText.current.children,
+        { opacity: 0, x: -100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 2,
+          ease: "power2.out",
+          stagger: 0.1,
+        }
+      );
+      gsap.fromTo(
+        heroImg.current.children,
+        { opacity: 0, x: 100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power2.out",
+          stagger: 0.2,
+        }
+      );
+    }
+
+    if (contentCard.current) {
+      gsap.fromTo(
+        contentCard.current.children,
+        { opacity: 0, x: 200 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".content-card",
+            start: "top 70%",
+            toggleActions: "play pause resume reverse",
+          },
+        }
+      );
+    }
+  }, []);
   return (
     <div className="home-page">
       <Navbar />
       <section className="hero">
         <div className="hero-container">
-          <div className="hero-text">
+          <div ref={heroText} className="hero-text">
             <h1>Hi! I&apos;m Ivan, your Full Stack Web Developer</h1>
             <p>
               A passionate web developer specializing in full-stack web
@@ -73,7 +124,7 @@ export default function Home() {
               <img className="arrow-btn" src={arrow} alt="arrow" />
             </a>
           </div>
-          <div className="hero-img">
+          <div ref={heroImg} className="hero-img">
             <div className="pic_box"></div>
             <img className="hero_pic" src={hero_pic} alt="Hero Image" />
           </div>
@@ -90,7 +141,7 @@ export default function Home() {
               <span>programming capabilities</span> for backend.{" "}
             </p>
           </div>
-          <div className="content-card">
+          <div ref={contentCard} className="content-card">
             <div className="card-item">
               <img
                 className="content-dev"

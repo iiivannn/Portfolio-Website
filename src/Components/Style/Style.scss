@@ -992,6 +992,22 @@ ul {
   }
 }
 
+//LOADING ANIMATION
+.loading {
+  position: "relative";
+  min-height: 180px;
+}
+.loading-box {
+  position: "absolute";
+  inset: 0;
+
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+  background-color: "#1e1e1e";
+  z-index: 1;
+}
+
 //GO UP BUTTON
 .btn-box {
   width: 30px;
