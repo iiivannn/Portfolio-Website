@@ -43,7 +43,7 @@ body {
 .project-page,
 .about-page,
 .contact-page {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -442,12 +442,26 @@ ul li:hover::after {
   height: 450px;
   width: 100%;
   margin: 4rem 0.5rem;
+  background-color: #f1f1f1;
 }
-.project-item .item-title {
-  width: 100vw;
-  padding: 0 1rem;
+.project-item a {
+  width: 100%;
   margin: 4rem 0 2rem;
   box-sizing: border-box;
+  color: black;
+  text-decoration: none;
+}
+.project-item .item-title {
+  width: 100%;
+  margin: 4rem 0 2rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 5px 0;
+  border: none;
+  transition: all 0.3s ease-out;
+}
+.project-item .item-title:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
 .project-item .item-title h2 {
   font-size: var(--font-size-m);
@@ -461,34 +475,38 @@ ul li:hover::after {
   line-height: 1.6;
 }
 
-.project-item a:hover .proj-pic {
-  filter: blur(4px) brightness(0.7);
+.tooltip-container {
+  position: relative;
+  display: inline-block;
 }
-
-.project-item a:hover .proj-pic-wrapper::after {
+.tooltip-container .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 12px;
+  position: absolute;
+  z-index: 10;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s;
+  font-size: 0.95rem;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.tooltip-container:hover .tooltip {
+  visibility: visible;
   opacity: 1;
 }
 
 .proj-pic-wrapper {
-  width: 100vw;
+  width: 100%;
   max-width: 100vw;
-}
-
-.proj-pic-wrapper::after {
-  content: "View Website";
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  font-size: 2rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 2;
 }
 
 .proj-pic {
@@ -1026,7 +1044,7 @@ ul li:hover::after {
 .stack {
   background-color: var(--primary-bg);
   height: auto;
-  width: 100vw;
+  width: 100%;
 }
 .stack .tech,
 .stack .platforms {
@@ -1399,7 +1417,7 @@ ul li:hover::after {
     margin: 4rem 0.5rem 10rem !important;
   }
   .project-item .item-title {
-    margin: 0 0 6rem !important;
+    margin: 0 0 8rem !important;
   }
   .proj-pic {
     height: 250px !important;
@@ -1578,7 +1596,7 @@ ul li:hover::after {
     font-size: 6rem !important;
   }
   .project-item {
-    margin: 6rem 0.5rem 10rem !important;
+    margin: 6rem 0.5rem 12rem !important;
     padding: 4rem 0;
   }
   .proj-pic {
