@@ -62,32 +62,54 @@ export default function About() {
       trigger: ".stack",
       start: "top 80%",
       onEnter: () => {
-        gsap.from(".tech h2, .platforms h2", {
-          duration: 0.6,
-          y: 30,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-        });
+        gsap.fromTo(
+          ".tech h2, .platforms h2",
+          {
+            y: 30,
+            opacity: 0,
+          },
+          {
+            duration: 0.6,
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: "power2.out",
+          }
+        );
 
-        gsap.from(".tech .icons img", {
-          duration: 0.5,
-          y: 20,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.3,
-        });
+        gsap.fromTo(
+          ".tech .icons img",
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            duration: 0.5,
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: "power2.out",
+            delay: 0.3,
+          }
+        );
 
-        gsap.from(".platforms .icons img", {
-          duration: 0.5,
-          y: 20,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.5,
-        });
+        gsap.fromTo(
+          ".platforms .icons img",
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            duration: 0.5,
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: "power2.out",
+            delay: 0.5,
+          }
+        );
       },
+      once: true,
     });
 
     ScrollTrigger.create({
@@ -232,7 +254,7 @@ export default function About() {
           </h2>
         </div>
         <div className="desc">
-          <p className="paragraph-1">
+          <div className="paragraph-1">
             {startTypewriter && (
               <Typewriter
                 onInit={(typewriter) => {
@@ -243,9 +265,12 @@ export default function About() {
                     )
                     .pauseFor(500)
                     .callFunction(() => {
-                      document.querySelector(
+                      const cursor = document.querySelector(
                         ".paragraph-1 .typewriter-cursor"
-                      ).style.display = "none";
+                      );
+                      if (cursor) {
+                        cursor.style.display = "none";
+                      }
                       document.querySelector(
                         ".desc .paragraph-2"
                       ).style.display = "block";
@@ -259,8 +284,8 @@ export default function About() {
                 }}
               />
             )}
-          </p>
-          <p className="paragraph-2">
+          </div>
+          <div className="paragraph-2">
             {startTypewriter && (
               <Typewriter
                 onInit={(typewriter) => {
@@ -271,9 +296,12 @@ export default function About() {
                     )
                     .pauseFor(500)
                     .callFunction(() => {
-                      document.querySelector(
+                      const cursor = document.querySelector(
                         ".paragraph-2 .typewriter-cursor"
-                      ).style.display = "none";
+                      );
+                      if (cursor) {
+                        cursor.style.display = "none";
+                      }
                       document.querySelector(
                         ".desc .paragraph-3"
                       ).style.display = "block";
@@ -287,8 +315,8 @@ export default function About() {
                 }}
               />
             )}
-          </p>
-          <p className="paragraph-3">
+          </div>
+          <div className="paragraph-3">
             {startTypewriter && (
               <Typewriter
                 onInit={(typewriter) => {
@@ -299,9 +327,12 @@ export default function About() {
                     )
                     .pauseFor(1000)
                     .callFunction(() => {
-                      document.querySelector(
+                      const cursor = document.querySelector(
                         ".paragraph-3 .typewriter-cursor"
-                      ).style.display = "none";
+                      );
+                      if (cursor) {
+                        cursor.style.display = "none";
+                      }
                     })
                     .start();
                 }}
@@ -312,7 +343,7 @@ export default function About() {
                 }}
               />
             )}
-          </p>
+          </div>
         </div>
       </div>
 

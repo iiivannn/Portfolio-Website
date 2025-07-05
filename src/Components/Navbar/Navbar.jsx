@@ -36,23 +36,37 @@ export default function Navbar() {
 
   const handleLinkClick = () => {
     setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <nav>
         <div className="branding">Fall</div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={handleNavClick}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about" onClick={handleNavClick}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
+            <Link to="/projects" onClick={handleNavClick}>
+              Projects
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={handleNavClick}>
+              Contact
+            </Link>
           </li>
         </ul>
         <div className="nav-spacer"></div>

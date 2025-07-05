@@ -445,7 +445,7 @@ ul li:hover::after {
   height: 450px;
   width: 100%;
   margin: 4rem 0.5rem;
-  background-color: #f1f1f1;
+  background-color: transparent;
 }
 .project-item a {
   width: 100%;
@@ -1093,7 +1093,9 @@ ul li:hover::after {
   font-size: 1.4rem;
   margin-bottom: 30px;
 }
-.about-content .desc p {
+.about-content .paragraph-1,
+.about-content .paragraph-2,
+.about-content .paragraph-3 {
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: 1px;
@@ -1278,7 +1280,7 @@ ul li:hover::after {
 #proj2-link,
 #proj3-link,
 #proj4-link {
-  scroll-margin-top: 2000px;
+  scroll-margin-top: 1rem;
 }
 
 @media (min-width: 390px) {
@@ -1630,7 +1632,7 @@ ul li:hover::after {
   .item-title h2 {
     font-size: var(--font-size-l) !important;
   }
-  .item-title p {
+  .item-title .item-text {
     font-size: 1.2rem !important;
   }
   .skills {
@@ -1723,7 +1725,9 @@ ul li:hover::after {
   .about-content .desc {
     width: 100%;
   }
-  .about-content p {
+  .about-content .paragraph-1,
+  .about-content .paragraph-2,
+  .about-content .paragraph-3 {
     font-size: 1.4rem !important;
   }
   .info-item {

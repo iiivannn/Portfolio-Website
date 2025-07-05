@@ -474,7 +474,7 @@ ul {
   height: 450px;
   width: 100%;
   margin: 4rem 0.5rem;
-  background-color: #f1f1f1;
+  background-color: transparent;
   a {
     width: 100%;
     margin: 4rem 0 2rem;
@@ -1153,7 +1153,9 @@ ul {
     font-size: 1.4rem;
     margin-bottom: 30px;
   }
-  .desc p {
+  .paragraph-1,
+  .paragraph-2,
+  .paragraph-3 {
     font-size: 1rem;
     line-height: 1.4;
     letter-spacing: 1px;
@@ -1345,7 +1347,7 @@ ul {
 #proj2-link,
 #proj3-link,
 #proj4-link {
-  scroll-margin-top: 2000px;
+  scroll-margin-top: 1rem;
 }
 
 //RESPONSIVE STYLING
@@ -1715,7 +1717,7 @@ ul {
     h2 {
       font-size: var(--font-size-l) !important;
     }
-    p {
+    .item-text {
       font-size: 1.2rem !important;
     }
   }
@@ -1818,7 +1820,9 @@ ul {
     .desc {
       width: 100%;
     }
-    p {
+    .paragraph-1,
+    .paragraph-2,
+    .paragraph-3 {
       font-size: 1.4rem !important;
     }
   }

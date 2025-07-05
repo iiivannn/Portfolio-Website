@@ -418,9 +418,12 @@ export default function Home() {
                           .typeString("ParSafe")
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
+                            const cursor = document.querySelector(
                               ".item-title .typewriter-title1"
-                            ).style.display = "none";
+                            );
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -432,7 +435,7 @@ export default function Home() {
                     />
                   )}
                 </h2>
-                <p>
+                <div className="item-text">
                   {startType[0] && (
                     <Typewriter
                       onInit={(typewriter) => {
@@ -442,9 +445,11 @@ export default function Home() {
                           )
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
-                              ".typewriter-desc1"
-                            ).style.display = "none";
+                            const cursor =
+                              document.querySelector(".typewriter-desc1");
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -455,7 +460,7 @@ export default function Home() {
                       }}
                     />
                   )}
-                </p>
+                </div>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
                 <img
@@ -483,9 +488,12 @@ export default function Home() {
                           .typeString("Urban Grandeur")
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
+                            const cursor = document.querySelector(
                               ".item-title .typewriter-title2"
-                            ).style.display = "none";
+                            );
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -497,7 +505,7 @@ export default function Home() {
                     />
                   )}
                 </h2>
-                <p>
+                <div className="item-text">
                   {startType[1] && (
                     <Typewriter
                       onInit={(typewriter) => {
@@ -507,9 +515,11 @@ export default function Home() {
                           )
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
-                              ".typewriter-desc2"
-                            ).style.display = "none";
+                            const cursor =
+                              document.querySelector(".typewriter-desc2");
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -520,7 +530,7 @@ export default function Home() {
                       }}
                     />
                   )}
-                </p>
+                </div>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
                 <img
@@ -547,9 +557,12 @@ export default function Home() {
                           .typeString("UrCoffee")
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
+                            const cursor = document.querySelector(
                               ".item-title .typewriter-title3"
-                            ).style.display = "none";
+                            );
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -561,7 +574,7 @@ export default function Home() {
                     />
                   )}
                 </h2>
-                <p>
+                <div className="item-text">
                   {startType[2] && (
                     <Typewriter
                       onInit={(typewriter) => {
@@ -571,9 +584,11 @@ export default function Home() {
                           )
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
-                              ".typewriter-desc3"
-                            ).style.display = "none";
+                            const cursor =
+                              document.querySelector(".typewriter-desc3");
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -584,7 +599,7 @@ export default function Home() {
                       }}
                     />
                   )}
-                </p>
+                </div>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
                 <img
@@ -608,9 +623,12 @@ export default function Home() {
                           .typeString("Fall Auto")
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
+                            const cursor = document.querySelector(
                               ".item-title .typewriter-title4"
-                            ).style.display = "none";
+                            );
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -622,7 +640,7 @@ export default function Home() {
                     />
                   )}
                 </h2>
-                <p>
+                <div className="item-text">
                   {startType[3] && (
                     <Typewriter
                       onInit={(typewriter) => {
@@ -632,9 +650,11 @@ export default function Home() {
                           )
                           .pauseFor(500)
                           .callFunction(() => {
-                            document.querySelector(
-                              ".typewriter-desc4"
-                            ).style.display = "none";
+                            const cursor =
+                              document.querySelector(".typewriter-desc4");
+                            if (cursor) {
+                              cursor.style.display = "none";
+                            }
                           })
                           .start();
                       }}
@@ -645,7 +665,7 @@ export default function Home() {
                       }}
                     />
                   )}
-                </p>
+                </div>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
                 <img
