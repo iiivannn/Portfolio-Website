@@ -98,7 +98,7 @@ export default function Projects() {
         duration: 0.3,
         y: -10,
         rotate: -1,
-        zIndex: 100,
+        zIndex: 3,
         ease: "power2.out",
       });
     };
