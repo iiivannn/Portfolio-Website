@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import ScrollReveal from "scrollreveal";
+import Typewriter from "typewriter-effect";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -39,6 +40,7 @@ export default function Home() {
   const certificatesRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+  const [startType, setStartType] = useState([]);
 
   useEffect(() => {
     const goTop = () => {
@@ -121,58 +123,20 @@ export default function Home() {
         }
       );
 
-      const projectItems =
-        projectsRef.current.querySelectorAll(".project-item");
-      projectItems.forEach((item, index) => {
-        // Main container animation
-        gsap.fromTo(
-          item,
-          {
-            y: 80,
-            opacity: 0,
-            scale: 0.8,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: item,
-              start: "top 85%",
-              end: "bottom 15%",
-              toggleActions: "play none none reverse",
-            },
-            delay: index * 0.2,
-          }
-        );
-      });
-
       const projectTitle = projectsRef.current.querySelectorAll(".item-title");
-      projectTitle.forEach((title) => {
-        gsap.fromTo(
-          title.children,
-          {
-            opacity: 0,
-            y: 50,
+      projectTitle.forEach((title, index) => {
+        ScrollTrigger.create({
+          trigger: title,
+          start: "top 90%",
+          once: true,
+          onEnter: () => {
+            setStartType((prev) => {
+              const updated = [...prev];
+              updated[index] = true;
+              return updated;
+            });
           },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-            stagger: 0.2,
-
-            scrollTrigger: {
-              trigger: title,
-              start: "top 90%",
-              end: "bottom 20%",
-              toggleActions: "play none none reset",
-            },
-            delay: 0.2,
-          }
-        );
+        });
       });
     }
 
@@ -446,11 +410,51 @@ export default function Home() {
           <div className="project-item">
             <a href="https://supabase-users.vercel.app/" target="_blank">
               <div className="item-title">
-                <h2>ParSafe</h2>
+                <h2>
+                  {startType[0] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString("ParSafe")
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".item-title .typewriter-title1"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 150,
+                        cursor: "|",
+                        cursorClassName: "typewriter-title1",
+                      }}
+                    />
+                  )}
+                </h2>
                 <p>
-                  The user interface of an automated parcel receiver named
-                  ParSafe. Managing parcel information and status are done in
-                  the website.
+                  {startType[0] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString(
+                            "The user interface of an automated parcel receiver named ParSafe. Managing parcel information and status are done in the website."
+                          )
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".typewriter-desc1"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 30,
+                        cursor: "|",
+                        cursorClassName: "typewriter-desc1",
+                      }}
+                    />
+                  )}
                 </p>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
@@ -471,10 +475,51 @@ export default function Home() {
               target="_blank"
             >
               <div className="item-title">
-                <h2>Urban Grandeur</h2>
+                <h2>
+                  {startType[1] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString("Urban Grandeur")
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".item-title .typewriter-title2"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 150,
+                        cursor: "|",
+                        cursorClassName: "typewriter-title2",
+                      }}
+                    />
+                  )}
+                </h2>
                 <p>
-                  A landing page for a mockup architectural company. Showcasing
-                  the company&apos;s info using React.
+                  {startType[1] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString(
+                            "A landing page for a mockup architectural company. Showcasing the company's info using React."
+                          )
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".typewriter-desc2"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 30,
+                        cursor: "|",
+                        cursorClassName: "typewriter-desc2",
+                      }}
+                    />
+                  )}
                 </p>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
@@ -494,10 +539,51 @@ export default function Home() {
               target="_blank"
             >
               <div className="item-title">
-                <h2>UrCoffee</h2>
+                <h2>
+                  {startType[2] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString("UrCoffee")
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".item-title .typewriter-title3"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 150,
+                        cursor: "|",
+                        cursorClassName: "typewriter-title3",
+                      }}
+                    />
+                  )}
+                </h2>
                 <p>
-                  An e-commerce website for a coffee shop. It features the
-                  products as well as the information about the shop.
+                  {startType[2] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString(
+                            "An e-commerce website for a coffee shop. It features the products as well as the information about the shop."
+                          )
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".typewriter-desc3"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 30,
+                        cursor: "|",
+                        cursorClassName: "typewriter-desc3",
+                      }}
+                    />
+                  )}
                 </p>
               </div>
               <div className="proj-pic-wrapper tooltip-container">
@@ -514,10 +600,51 @@ export default function Home() {
           <div className="project-item item-4">
             <a href="https://car-website-wheat.vercel.app/" target="_blank">
               <div className="item-title">
-                <h2>Fall Auto</h2>
+                <h2>
+                  {startType[3] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString("Fall Auto")
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".item-title .typewriter-title4"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 150,
+                        cursor: "|",
+                        cursorClassName: "typewriter-title4",
+                      }}
+                    />
+                  )}
+                </h2>
                 <p>
-                  A website for car dealership. It showcases various car brands
-                  as well as their prices, special offers, and model.
+                  {startType[3] && (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString(
+                            "A website for car dealership. It showcases various car brands as well as their prices, special offers, and model."
+                          )
+                          .pauseFor(500)
+                          .callFunction(() => {
+                            document.querySelector(
+                              ".typewriter-desc4"
+                            ).style.display = "none";
+                          })
+                          .start();
+                      }}
+                      options={{
+                        delay: 30,
+                        cursor: "|",
+                        cursorClassName: "typewriter-desc4",
+                      }}
+                    />
+                  )}
                 </p>
               </div>
               <div className="proj-pic-wrapper tooltip-container">

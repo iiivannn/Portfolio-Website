@@ -1,4 +1,6 @@
 import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import arrow from "../../assets/up-arrow.png";
 import project1 from "../../assets/project1_close.png";
@@ -10,8 +12,14 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "../Style/Style.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Projects() {
   const buttonUp = useRef(null);
+  const projectHeroRef = useRef(null);
+  const projectTitleRef = useRef(null);
+  const projectBoxRef = useRef(null);
+  const infoItemsRef = useRef([]);
 
   useEffect(() => {
     const goTop = () => {
@@ -27,6 +35,104 @@ export default function Projects() {
     };
   }, []);
 
+  useEffect(() => {
+    infoItemsRef.current.forEach((item) => {
+      if (item) {
+        gsap.set(item, { opacity: 0, y: 60 });
+
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 80%",
+          onEnter: () => {
+            gsap.to(item, {
+              duration: 0.8,
+              opacity: 1,
+              y: 0,
+              ease: "power2.out",
+            });
+          },
+        });
+
+        const img = item.querySelector("img");
+        const infoText = item.querySelector(".info-text");
+
+        if (img && infoText) {
+          gsap.set([img, infoText], { opacity: 0, y: 30 });
+
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 75%",
+            onEnter: () => {
+              gsap.to([img, infoText], {
+                duration: 0.6,
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                ease: "power2.out",
+                delay: 0.2,
+              });
+            },
+          });
+        }
+      }
+    });
+
+    let currentIndex = 0;
+    let animationInterval;
+    let isHovering = false;
+
+    const projectImages = document.querySelectorAll(".img-box");
+
+    const animateCard = (index) => {
+      projectImages.forEach((imgBox) => {
+        gsap.to(imgBox, {
+          duration: 0.3,
+          y: 0,
+          rotate: 0,
+          zIndex: 1,
+          ease: "power2.out",
+        });
+      });
+
+      gsap.to(projectImages[index], {
+        duration: 0.3,
+        y: -10,
+        rotate: -1,
+        zIndex: 100,
+        ease: "power2.out",
+      });
+    };
+
+    const startInfiniteAnimation = () => {
+      animationInterval = setInterval(() => {
+        if (!isHovering) {
+          animateCard(currentIndex);
+          currentIndex = (currentIndex + 1) % projectImages.length;
+        }
+      }, 2000);
+    };
+
+    projectImages.forEach((imgBox, index) => {
+      imgBox.addEventListener("mouseenter", () => {
+        isHovering = true;
+        clearInterval(animationInterval);
+        animateCard(index);
+      });
+
+      imgBox.addEventListener("mouseleave", () => {
+        isHovering = false;
+        currentIndex = Math.floor(Math.random() * projectImages.length);
+        startInfiniteAnimation();
+      });
+    });
+
+    startInfiniteAnimation();
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,33 +140,39 @@ export default function Projects() {
     });
   };
 
+  const addToRefs = (el) => {
+    if (el && !infoItemsRef.current.includes(el)) {
+      infoItemsRef.current.push(el);
+    }
+  };
+
   return (
     <div className="project-page">
       <Navbar />
 
-      <div className="project-hero">
-        <div className="project-page-box">
-          <div className="img-box">
+      <div className="project-hero" ref={projectHeroRef}>
+        <div className="project-page-box" ref={projectBoxRef}>
+          <a href="#proj1-link" className="img-box">
             <img className="project1" src={project1} alt="Project Item" />
-          </div>
+          </a>
 
-          <div className="img-box custom-2">
+          <a href="#proj2-link" className="img-box custom-2">
             <img className="project2" src={project2} alt="Project Item" />
-          </div>
-          <div className="img-box custom-3">
+          </a>
+          <a href="#proj3-link" className="img-box custom-3">
             <img className="project3" src={project3} alt="Project Item" />
-          </div>
-          <div className="img-box custom-4">
+          </a>
+          <a href="#proj4-link" className="img-box custom-4">
             <img className="project4" src={project4} alt="Project Item" />
-          </div>
+          </a>
         </div>
-        <div className="project-title">
+        <div className="project-title" ref={projectTitleRef}>
           <h2>PROJECTS</h2>
         </div>
       </div>
 
       <div className="proj-info">
-        <div className="info-item">
+        <div className="info-item" id="proj4-link" ref={addToRefs}>
           <img src={project4} alt="Project Image" />
           <div className="info-text">
             <div className="header">Fall Auto - Car Dealership Website</div>
@@ -87,7 +199,7 @@ export default function Projects() {
             View Website
           </a>
         </div>
-        <div className="info-item">
+        <div className="info-item" id="proj2-link" ref={addToRefs}>
           <img src={project2} alt="Project Image" />
           <div className="info-text">
             <div className="header">Urban Grandeur - Architectural Website</div>
@@ -114,7 +226,7 @@ export default function Projects() {
             View Website
           </a>
         </div>
-        <div className="info-item">
+        <div className="info-item" id="proj3-link" ref={addToRefs}>
           <img src={project3} alt="Project Image" />
           <div className="info-text">
             <div className="header">UrCoffee - Coffee Shop Website</div>
@@ -141,7 +253,7 @@ export default function Projects() {
             View Website
           </a>
         </div>
-        <div className="info-item">
+        <div className="info-item" id="proj1-link" ref={addToRefs}>
           <img src={project1} alt="Project Image" />
           <div className="info-text">
             <div className="header">ParSafe - A Smart Parcel Receiver</div>

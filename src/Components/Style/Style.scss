@@ -94,9 +94,11 @@ nav {
 
 .talk-btn:hover {
   transition: all 0.3s ease;
-  transform: scale(1.05);
   box-shadow: 0 0 5px 2px #a55b4b;
   cursor: pointer;
+  .arrow-btn {
+    transform: rotate(90deg) translateY(-5px);
+  }
 }
 
 .arrow-btn {
@@ -104,6 +106,7 @@ nav {
   height: 16px;
   width: 16px;
   transform: rotate(90deg);
+  transition: all 0.3s ease;
 }
 
 .branding {
@@ -523,7 +526,7 @@ ul {
     padding: 6px 12px;
     position: absolute;
     z-index: 10;
-    bottom: 110%; // above the image
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%);
     transition: opacity 0.2s;
@@ -1102,6 +1105,7 @@ ul {
     font-size: 1.6rem;
     font-weight: var(--font-weight-semi);
     margin: 0;
+    width: max-content;
   }
 }
 
@@ -1156,6 +1160,12 @@ ul {
     font-weight: var(--font-weight-med);
     margin-bottom: 30px;
   }
+}
+
+.paragraph-1,
+.paragraph-2,
+.paragraph-3 {
+  display: none;
 }
 
 //CONTACT PAGE STYLING
@@ -1284,7 +1294,7 @@ ul {
   a {
     padding: 5px 10px;
     color: black;
-    background-color: #d9d9d9;
+    background-color: var(--primary-btn);
     text-decoration: none;
     font-size: 0.7rem;
     display: block;
@@ -1294,9 +1304,7 @@ ul {
     transition: all 0.3s ease-in-out;
   }
   a:hover {
-    background-color: var(--primary-btn);
-    box-shadow: 0 0 5px 2px #dca06d;
-    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
   }
 }
 
@@ -1331,6 +1339,13 @@ ul {
       margin: 0.2rem 0 0 0.5rem;
     }
   }
+}
+
+#proj1-link,
+#proj2-link,
+#proj3-link,
+#proj4-link {
+  scroll-margin-top: 2000px;
 }
 
 //RESPONSIVE STYLING

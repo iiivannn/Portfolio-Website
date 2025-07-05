@@ -81,9 +81,11 @@ nav {
 
 .talk-btn:hover {
   transition: all 0.3s ease;
-  transform: scale(1.05);
   box-shadow: 0 0 5px 2px #a55b4b;
   cursor: pointer;
+}
+.talk-btn:hover .arrow-btn {
+  transform: rotate(90deg) translateY(-5px);
 }
 
 .arrow-btn {
@@ -91,6 +93,7 @@ nav {
   height: 16px;
   width: 16px;
   transform: rotate(90deg);
+  transition: all 0.3s ease;
 }
 
 .branding {
@@ -1039,6 +1042,8 @@ ul li:hover::after {
   font-size: 1.6rem;
   font-weight: var(--font-weight-semi);
   margin: 0;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .stack {
@@ -1094,6 +1099,12 @@ ul li:hover::after {
   letter-spacing: 1px;
   font-weight: var(--font-weight-med);
   margin-bottom: 30px;
+}
+
+.paragraph-1,
+.paragraph-2,
+.paragraph-3 {
+  display: none;
 }
 
 .contact .contact-header {
@@ -1213,7 +1224,7 @@ ul li:hover::after {
 .info-item a {
   padding: 5px 10px;
   color: black;
-  background-color: #d9d9d9;
+  background-color: var(--primary-btn);
   text-decoration: none;
   font-size: 0.7rem;
   display: block;
@@ -1224,9 +1235,7 @@ ul li:hover::after {
   transition: all 0.3s ease-in-out;
 }
 .info-item a:hover {
-  background-color: var(--primary-btn);
-  box-shadow: 0 0 5px 2px #dca06d;
-  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
 }
 
 .info-text .header {
@@ -1263,6 +1272,13 @@ ul li:hover::after {
 .info-text .info-features p {
   font-size: 0.6rem;
   margin: 0.2rem 0 0 0.5rem;
+}
+
+#proj1-link,
+#proj2-link,
+#proj3-link,
+#proj4-link {
+  scroll-margin-top: 2000px;
 }
 
 @media (min-width: 390px) {

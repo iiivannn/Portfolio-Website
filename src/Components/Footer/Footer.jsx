@@ -77,8 +77,8 @@ export default function Footer() {
               <div className="footer-text-box contact-content">
                 <p>Let&apos;s Work!</p>
                 <p>
-                  Bringing ideas and fun altogether, let’s make it towards both
-                  of our success!
+                  Bringing ideas and fun altogether, let&apos;s make it towards
+                  both of our success!
                 </p>
                 <p>
                   For any inquiries, collaborations, or messages, feel free to
