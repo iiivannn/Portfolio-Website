@@ -181,10 +181,24 @@ export default function Footer() {
             <div className="link-social">
               <h4>Links</h4>
               <div className="line-break"></div>
-              <a href="">Github</a>
-              <a href="">LinkedIN</a>
-              <a href="">Jobstreet</a>
-              <a href="">Indeed</a>
+              <a href="https://github.com/iiivannn" target="_blank">
+                Github
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ivan-abillon-287b54342/"
+                target="_blank"
+              >
+                LinkedIN
+              </a>
+              <a href="https://ph.jobstreet.com/profile/me" target="_blank">
+                Jobstreet
+              </a>
+              <a
+                href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage"
+                target="_blank"
+              >
+                Indeed
+              </a>
             </div>
             <div className="contact">
               <h4>Contact</h4>

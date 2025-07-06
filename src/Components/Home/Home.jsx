@@ -756,11 +756,11 @@ export default function Home() {
                 <div className="soft-skill-items">
                   <div className="check-item">
                     <img src={check} alt="Check Icon" />
-                    <p>Willing To Learn</p>
+                    <p>Openness to feedback</p>
                   </div>
                   <div className="check-item">
                     <img src={check} alt="Check Icon" />
-                    <p>Adaptable</p>
+                    <p>Adaptable to change</p>
                   </div>
                   <div className="check-item">
                     <img src={check} alt="Check Icon" />
@@ -772,7 +772,7 @@ export default function Home() {
                   </div>
                   <div className="check-item">
                     <img src={check} alt="Check Icon" />
-                    <p>Teamwork</p>
+                    <p>Teamwork and Collaboration</p>
                   </div>
                   <div className="check-item">
                     <img src={check} alt="Check Icon" />
